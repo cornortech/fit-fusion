@@ -29,7 +29,7 @@
   --sonic-silver: hsl(0, 0%, 47%);
   --cadet-gray: hsl(214, 15%, 62%);
   --light-gray: hsl(0, 0%, 80%);
-  --coquelicot: hsl(12, 98%, 52%);
+  --coquelicot: hsl(244, 85%, 64%);
   --gainsboro: hsl(0, 0%, 88%);
   --white_20: hsl(0, 0%, 100%, 0.2);
   --white_10: hsl(0, 0%, 100%, 0.1);
@@ -393,7 +393,7 @@ body {
 
 .nav-open-btn .line {
   background-color: var(--white);
-  width: 30px;
+  width: 50px;
   height: 3px;
 }
 
@@ -745,7 +745,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  background-color: hsl(12, 98%, 52%);
+  background-color: hsl(244, 85%, 64%);
   border-radius: 30px;
   margin-left: 19rem;
 }
@@ -821,7 +821,7 @@ section.pricing{
 	height: 140px;
 	position: relative;
 	border-radius: 10px 10px 0px 0px;
-	background-color: hsl(12, 98%, 52%);
+	background-color:hsl(244, 85%, 64%);
 }
 .pricing-card-header .pricing-card-title{
 	font-size: 24px;
@@ -839,7 +839,7 @@ section.pricing{
 	top: 100%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	border: 5px solid hsl(12, 98%, 52%);
+	border: 5px solid hsl(244, 85%, 64%);
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;
@@ -878,7 +878,7 @@ section.pricing{
 	margin-bottom: 20px;
 }
 .pricing-card-body ul li i{
-	color: #d1d5db;
+	color: #84b4fc;
 	margin-right: 8px;
 }
 .pricing-card-body .price-plan-btn{
@@ -887,7 +887,7 @@ section.pricing{
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  color: rgb(253, 61, 13);
+  color: hsl(244, 85%, 64%);
   
 }
 .pricing-card:nth-child(2) .tag-box{
@@ -941,7 +941,7 @@ section.pricing{
 
 .review__container > span {
   font-size: 6rem;
-  color: rgb(255, 51, 0);
+  color: hsl(244, 85%, 64%);
   opacity: 0.8;
 }
 
@@ -953,7 +953,7 @@ section.pricing{
   margin-bottom: 2rem;
   font-size: 2rem;
   font-weight: 600;
-  color: rgb(255, 51, 0);
+  color:hsl(244, 85%, 64%);
 }
 
 .review__content p {
@@ -995,7 +995,7 @@ section.pricing{
   align-items: center;
   gap: 2rem;
   transform: scale(1.8);
-  color: rgb(255, 51, 0);
+  color:hsl(244, 85%, 64%);
   opacity: 0.8;
 }
 
@@ -1130,7 +1130,7 @@ footer{
   content: '';
   height: 2px;
   width: 15%;
-  background: #f12020;
+  background:hsl(244, 85%, 64%);
   top: -10px;
 }
 .left .content p{
