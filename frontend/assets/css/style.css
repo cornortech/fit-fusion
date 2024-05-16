@@ -274,11 +274,19 @@ body {
   max-width: max-content;
 }
 
+.blur-diet-select{
+  filter: blur(2px);
+}
 .section-subtitle {
-  background-color: var(--coquelicot_10);
+  /* background-color: #e3e9fc !important; */
+  background-color: #efeeff;
+  color: black;
+  letter-spacing: 1px ;
   margin-inline: auto;
-  color: var(--coquelicot);
+  /* color: var(--coquelicot); */
+  font-weight: 500 !important;
   padding: 8px 20px;
+  font-size: 16px;
   border-radius: var(--radius-8);
 }
 
@@ -1213,6 +1221,12 @@ footer{
   cursor: pointer;
   transition: .3s;
 }
+#logout_button,#login_button{
+  background-color: #ffffff;
+  display: none; 
+  backdrop-filter: 44px;
+  border: 2px solid #6055f1;
+}
 .right form .btn button:hover{
   background: #000;
 }
@@ -1246,7 +1260,82 @@ footer{
 }
 
 
+/* styles.css */
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 15px;
+    max-width: 500px;
+    text-align: center;
+}
+.confirm-title{
+  font-weight: bold;
+  font-size: 2rem;
+  letter-spacing: 2px;
+
+}
+.modal-button-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+
+}
+.modal button:nth-of-type(1){
+  background-color: #30abfe;
+  color: white;
+  border-radius: 7px;
+}
+.modal button:nth-of-type(2){
+  background-color: #ff0000;
+  color: white;
+  border-radius: 7px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+
+.selected-plan-button{
+  background-color: var(--coquelicot);
+  color:white !important;
+}
 
 /*-----------------------------------*\
   #BACK TO TOP
@@ -1316,7 +1405,7 @@ footer{
   }
 
   .hero-subtitle,
-  .section-subtitle { font-size: var(--fs-5); }
+  /* .section-subtitle { font-size: var(--fs-5); } */
 
 
 
@@ -1721,4 +1810,14 @@ footer{
 
   .footer-top .container { grid-template-columns: 1fr 0.6fr 0.9fr 1fr; }
 
+}
+#diet-plan-select{
+  border-radius: 10px !important;
+  border: 1px solid var(--coquelicot);
+  padding: 0 10px;
+  color: #6055f1;
+}
+#diet-plan-select::placeholder{
+  font-size: 15px;
+  color: rgb(208, 208, 208);
 }
