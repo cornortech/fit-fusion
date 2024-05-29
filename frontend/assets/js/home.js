@@ -161,30 +161,7 @@ const handlePurchasePlan = async (cb) => {
     // alert("you must be logged in");
     showToast("Please login to purchase plan", "error");
   }
-  try {
-    const enrollPayload = {
-      userId: user._id,
-      package: planId,
-    };
-    res = await fetch(`${BACKEND_ROOT_URL}/api/gym/enroll`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(enrollPayload),
-    });
-
-    if (res.status === 201) {
-      showToast("Request sent successfully.");
-      cb();
-      await getPackageStatus();
-    } else {
-      throw new Error("something went wrong");
-    }
-  } catch (error) {
-    console.log(error);
-    cb();
-  }
+  location.href="/frontend/admin/payment.html?package_id="+planId;
 };
 const handleCancelPlan = async (cb) => {
   const planId = package_id;

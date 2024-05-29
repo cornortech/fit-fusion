@@ -1,11 +1,15 @@
 const BACKEND_ROOT_URL = "http://localhost:8000";
+const FRONTEND_ROOT_URL="http://127.0.0.1:5500"
+
 const getLoggedInUser = () => {
   const user = JSON.parse(localStorage.getItem("fit-fusion"));
   return user || null;
 };
+
 const setLoggedInUser = (user) => {
   localStorage.setItem("fit-fusion", JSON.stringify(user));
 };
+
 function showToast(text, type = "success") {
   Toastify({
     text,
@@ -17,34 +21,63 @@ function showToast(text, type = "success") {
   }).showToast();
 }
 
-
 const startApp = () => {
   const user = getLoggedInUser();
+  const dietPlanSelect = document.querySelector("#diet-plan-select");
+  const dietLoginButton = document.querySelector("#diet-login-button");
+
   if (user) {
-    document
-      .querySelector("#diet-plan-select")
-      .classList.remove("blur-diet-select");
-    document.querySelector("#diet-plan-select").disabled = false;
-    document.querySelector("#diet-login-button").style.display = "none";
+    if (dietPlanSelect) {
+      dietPlanSelect.classList.remove("blur-diet-select");
+      dietPlanSelect.disabled = false;
+    }
+    if (dietLoginButton) dietLoginButton.style.display = "none";
   } else {
-        document
-          .querySelector("#diet-plan-select")
-          .classList.add("blur-diet-select");
-    document.querySelector("#diet-plan-select").disabled = true;
-    document.querySelector("#diet-login-button").style.display = "block";
+    if (dietPlanSelect) {
+      dietPlanSelect.classList.add("blur-diet-select");
+      dietPlanSelect.disabled = true;
+    }
+    if (dietLoginButton) dietLoginButton.style.display = "block";
   }
 
   const loginButton = document.querySelector("#login_button");
   const logoutButton = document.querySelector("#logout_button");
+
   if (user) {
     if (loginButton) loginButton.style.display = "none";
     if (logoutButton) logoutButton.style.display = "block";
-    if (user.isAdmin) {
-      // location.href = "/frontend/admin/admin.html";
-    }
   } else {
     if (loginButton) loginButton.style.display = "block";
     if (logoutButton) logoutButton.style.display = "none";
+  }
+
+  if (user) {
+    if (user.isAdmin || user.isSuperAdmin) {
+      const adminUserSidebarItem = document.querySelector(
+        "#admin-user-sidebar-item"
+      );
+      const addUserSidebarItem = document.querySelector(
+        "#add-user-sidebar-item"
+      );
+      if (adminUserSidebarItem) adminUserSidebarItem.style.display = "block";
+      if (addUserSidebarItem) addUserSidebarItem.style.display = "block";
+    } else {
+      const adminUserSidebarItem = document.querySelector(
+        "#admin-user-sidebar-item"
+      );
+      const addUserSidebarItem = document.querySelector(
+        "#add-user-sidebar-item"
+      );
+      if (adminUserSidebarItem) adminUserSidebarItem.style.display = "none";
+      if (addUserSidebarItem) addUserSidebarItem.style.display = "none";
+    }
+  } else {
+    const adminUserSidebarItem = document.querySelector(
+      "#admin-user-sidebar-item"
+    );
+    const addUserSidebarItem = document.querySelector("#add-user-sidebar-item");
+    if (adminUserSidebarItem) adminUserSidebarItem.style.display = "none";
+    if (addUserSidebarItem) addUserSidebarItem.style.display = "none";
   }
 };
 
@@ -60,5 +93,8 @@ const logout = () => {
     }
   }, 2000);
 };
-console.log("admin", document.querySelector("#logout_button"));
-document.querySelector("#logout_button").addEventListener("click", logout);
+
+const logoutButton = document.querySelector("#logout_button");
+if (logoutButton) {
+  logoutButton.addEventListener("click", logout);
+}

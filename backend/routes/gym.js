@@ -4,12 +4,13 @@ const User = require("../models/user");
 const router = express.Router();
 
 router.post("/enroll", async (req, res) => {
-  const { userId, package } = req.body;
+  const { userId, package, order_intent_secret } = req.body;
   try {
     const newEnroll = new GymEnroll({
       userId,
       package,
-
+      status:"APPROVED",
+      order_intent_secret,
     });
     await newEnroll.save();
     res
@@ -17,6 +18,20 @@ router.post("/enroll", async (req, res) => {
       .json({ message: "Enrollment request submitted successfully" });
   } catch (error) {
     console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+router.get("/enroll/status/:order_intent_secret", async (req, res) => {
+  try {
+    const { order_intent_secret } = req.params;
+    const enroll = await GymEnroll.findOne({ order_intent_secret });
+    if (enroll) {
+      res.status(200).json({ message: true });
+    } else {
+      res.status(200).json({ message: false });
+    }
+  } catch (error) {
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -77,9 +92,9 @@ router.post("/cancel", async (req, res) => {
     console.log(enrollments);
     await GymEnroll.findByIdAndUpdate(enrollId, {
       $set: {
-        status:"CANCELLED"
+        status: "CANCELLED",
       },
-    })
+    });
 
     return res.status(200).json("Package has been cancelled successfully");
   } catch (error) {

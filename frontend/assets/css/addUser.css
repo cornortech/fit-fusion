@@ -1,0 +1,89 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+}
+
+.form-container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.create-account-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+
+.create-account-form h2 {
+    margin: 0 0 1rem;
+}
+
+.create-account-form p {
+    margin: 0 0 1.5rem;
+    font-size: 0.9rem;
+}
+
+.create-account-form a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.create-account-form a:hover {
+    text-decoration: underline;
+}
+
+.create-account-form input[type="text"],
+.create-account-form input[type="email"] ,
+.create-account-form input[type="password"], 
+.create-account-form input[type="number"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.name-fields {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.name-fields input {
+    flex: 1;
+}
+
+.create-account-form button {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 1rem 0;
+    border: none;
+    border-radius: 5px;
+    background-color: hsl(244, 85%, 64%);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.create-account-form button:hover {
+    background-color: hsl(244, 84%, 61%);
+}
+
+.terms {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+.terms input {
+    margin-right: 0.5rem;
+}

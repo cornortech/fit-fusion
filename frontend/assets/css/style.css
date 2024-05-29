@@ -487,6 +487,7 @@ body {
   color: var(--white);
   margin-inline: auto;
   padding: 5px;
+  
   padding-inline-end: 15px;
   border-radius: var(--radius-8);
 }
